@@ -1,0 +1,14 @@
+{
+    "port": 8080,
+    "notificationService": {
+        "baseURL": "http://notification-service:5001",
+        "retries": 5,
+        "retryCodes": [ 429, 500 ],
+        "delayFactor": 1000
+    },
+    "processors": {
+        "concurrencySms": 1,
+        "concurrencyEmail": 1,
+        "delayInMs": 200
+    }
+}
