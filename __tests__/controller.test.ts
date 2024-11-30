@@ -59,7 +59,7 @@ test("test controller", async () => {
   const { notificationId } = controller.notifications.sendToUser(
     userId,
     "hi there!"
-  );
+  ) as { notificationId: string };
 
   const status = controller.notifications.getStatus(notificationId);
   expect(status).toMatchObject({

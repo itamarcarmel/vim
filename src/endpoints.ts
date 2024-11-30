@@ -40,7 +40,7 @@ export const registerEndpoints = (
   app.get(`${prefixes.userPreferences}/:id`, (req, res) => {
     const { id } = req.params;
     if (_.isEmpty(id)) {
-      res.status(StatusCodes.BAD_REQUEST);
+      res.sendStatus(StatusCodes.BAD_REQUEST);
       return;
     }
 
@@ -59,7 +59,7 @@ export const registerEndpoints = (
       const { id } = req.params;
       const ret = controller.userPreferences.updateById(id, req.body);
 
-      res.status(ret ? StatusCodes.OK : StatusCodes.NOT_FOUND);
+      res.sendStatus(ret ? StatusCodes.OK : StatusCodes.NOT_FOUND);
     }
   );
 
@@ -91,7 +91,7 @@ export const registerEndpoints = (
     const { id } = req.params;
     const status = controller.notifications.getStatus(id);
     if (_.isNil(status)) {
-      res.status(StatusCodes.NOT_FOUND);
+      res.sendStatus(StatusCodes.NOT_FOUND);
       return;
     }
 
