@@ -145,3 +145,17 @@ curl 'http://localhost:8080/notifications/{notificationId}'
     }
 }
 ```
+
+## **Itamar's comments (TODO):**
+1. Add auth mechnism to the REST api
+2. Add field validations for the user prefs (type validations)
+3. Add warnings for invalid phones/emails etc.
+4. Case send fails due to unreacheble destination email/phone - add warning to user prefs document
+5. Validate relevant fields before sending
+6. Consider data uniquness policy (could 2 prefs have the same phone/email?)
+7. Add a collection for each method send documents (type: 'sms' | 'email' + notification id as FK)
+8. Make method support more felxible and extendable - a record between a union type of methods to IMethodSender (send which extracts user def relevant fields + validate user prefs before sending etc.)
+9. Add capacity to queues (if not persistent)
+10. Increase worker consumers according to load
+11. Add integration + e2e tests + more unit tests
+12.  Logging and monitoring (can also persist latency and duration from request till completion)
